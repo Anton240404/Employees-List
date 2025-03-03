@@ -1,8 +1,7 @@
-export interface Employee {
-    numeric?: number;
-    id: number | string;
+export type Employee = {
+    id: string;
     name: string;
     company: string;
     group: string;
-    status?: string;
+    active: boolean;
 }

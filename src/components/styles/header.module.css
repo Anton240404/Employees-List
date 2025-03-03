@@ -11,24 +11,27 @@ body {
     height: 100%;
 }
 
+.container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    outline: none;
+}
 
 
 .icon{
     height: 89px;
     width: 188px;
 }
+
 .nameCompany{
-    display: flex;
-    flex-direction: row;
-    justify-content:flex-start;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: 13% 81% 70%;;
+    align-items: center;
 }
+
 .add {
-    height: 75%;
     display: flex;
-    flex-direction: row;
-    align-self: center;
-    gap:5px;
 }
 .add button, select {
     margin-left: 5px;
@@ -38,77 +41,46 @@ body {
     height: 32px;
 }
 .buttonAdd{
-    width: 150px;
-    height: 32px;
+    all: unset;
+    display: inline-block;
     background-color: #4CAF50;
     color: white;
+    height: 35px;
+    width: 105px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
 }
-.guests{
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    padding: 10px;
-    justify-content: center;
-    height: 21%;
-}
+
 .header {
-    display: flex;
     gap: 10px;
     padding: 10px;
     font-weight: bold;
     width: 100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-.header p {
-    text-align: left;
+.header, .card {
+    display: grid;
+    grid-template-columns: 10% 30% 30% 20% 10%;
+    align-items: center;
+}
+.containerList{
+    flex-grow: 1;
 }
 
-.header p:nth-child(1),
-.card p:nth-child(1) {
-    flex: 1;
-}
-
-.header p:nth-child(2),
-.card p:nth-child(2) {
-    flex: 1;
-}
-
-.header p:nth-child(3),
-.card p:nth-child(3) {
-    flex: 1;
-}
-
-.header p:nth-child(4),
-.card p:nth-child(4) {
-    flex: 1;
-}
-
-.header p:nth-child(5),
-.card p:nth-child(5) {
-    flex: 0 0 150px;
-}
-
-.list {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.item {
+    .item {
     cursor: pointer;
     width: 100%;
+        transition-duration: 0.2s;
 }
+    
+    .item:hover {
+        background-color: #ccc;
+    }
 
 .card {
-    display: flex;
     gap: 10px;
     padding: 10px;
-    align-items: center;
     width: 100%;
 }
 
@@ -119,18 +91,149 @@ body {
 .conteinerFooter {
     display: flex;
     width: 50%;
-
-
 }
 .footer{
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
-    margin-top: auto;
+    margin-bottom: 15px;
+    margin-left: 10px
+}
+.footer p {
+    cursor: pointer;
+}
+.footer h1{
+    font-weight: 700;
+    font-size:20px;
+}
+.footerButton{
+    background-color: #C4C4C4;
+    color: white;
+    border-radius: 20px;
+
+}
+.conteinerFooter button {
+        all: unset;
+        display: inline-block;
+        background-color: #ccc;
+        color: white;
+        height: 25px;
+        width: 105px;
+        border-radius: 20px;
+        text-align: center;
+        cursor: pointer;
+
 }
 
-.conteinerFooter button {
-    padding: 5px 10px;
+.green {
+    background-color: green;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.red {
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    height: 50%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    gap: 20px
+}
+
+.addAndEdit {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    gap: 20px;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.addAndEdit h2 {
+    align-self: center;
+    font-size: 20px;
+    color: #4A3604;
+}
+
+.nameEditAndAdd,
+.companyEditAndAdd,
+.groupEditAndAdd {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.nameEditAndAdd span,
+.companyEditAndAdd span,
+.groupEditAndAdd span,
+label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4A3604;
+    width: 120px;
+    text-align: right;
+}
+
+input[type="text"],
+select {
+    width: 250px;
+    height: 35px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.buttonEditAndAdd {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.buttonEditAndAdd button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
     cursor: pointer;
+}
+
+.buttonEditAndAdd button:first-child {
+    background: #4CAF50;
+    color: white;
+}
+
+.buttonEditAndAdd button:last-child {
+    background: #666;
+    color: white;
 }

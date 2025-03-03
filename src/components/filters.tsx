@@ -12,6 +12,7 @@ export function Filter(props: Props) {
         props.onFilterChange(name);
     }
 
+
     const handleKeyDown = (e: React.KeyboardEvent) => {
         if (e.key === "Enter") {
             handleFilterChange();
@@ -21,12 +22,13 @@ export function Filter(props: Props) {
     return (
         <div>
             <input
-                type='text'
+                type="text"
                 placeholder="Поиск по имени"
                 value={name}
                 onChange={(e) => {
-                    setName(e.target.value)
-                    handleFilterChange()
+                    const newValue = e.target.value;
+                    setName(newValue);
+                    props.onFilterChange(newValue);
                 }}
                 onKeyDown={handleKeyDown}
             />
