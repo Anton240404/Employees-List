@@ -1,0 +1,24 @@
+import React from 'react';
+/*import css from './input.module.css';*/
+
+type TextInputProps = {
+    value: string;
+    onChange: (value: string) => void;
+    placeholder?: string;
+    required?: boolean;
+    onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+};
+
+export function TextInput({ value, onChange, placeholder, required, onKeyDown }: TextInputProps) {
+    return (
+        <input
+            type="text"
+            /*lassName={css.textInput}*/
+            value={value}
+            placeholder={placeholder}
+            required={required}
+            onChange={(e) => onChange(e.target.value)}
+            onKeyDown={onKeyDown}
+        />
+    );
+}

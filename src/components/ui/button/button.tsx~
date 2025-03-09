@@ -1,0 +1,26 @@
+import css from './button.module.css'
+
+type Props = {
+    type: 'success' | 'danger' | 'default',
+    onClick: () => void,
+    text: string,
+
+}
+
+export function Button({type, onClick, text}: Props) {
+    const classnames = [css.button]
+
+    if (type === 'success') {
+        classnames.push(css.success)
+    } else if (type === 'danger') {
+        classnames.push(css.danger)
+    } else if (type === 'default') {
+        classnames.push(css.default)
+    }
+
+    return (
+        <>
+            <button onClick={() => onClick()} className={classnames.join(' ')}>{text}</button>
+        </>
+    )
+}

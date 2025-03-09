@@ -1,0 +1,26 @@
+/* Общие стили */
+.button {
+    border-radius: 4px;
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    height: 35px;
+    width: 105px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.danger {
+    background-color: red;
+}
+
+.success {
+    margin-left: 5px;
+    background-color: green;
+
+}
+
+.default {
+    color: #000;
+    background-color: #ccc;
+}

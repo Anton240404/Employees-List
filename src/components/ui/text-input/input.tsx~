@@ -1,0 +1,18 @@
+import React from "react";
+
+type Props = {
+    type:'name' | ' '
+    typeInput: string
+    placeholder: string
+    value: string
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+    onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void
+
+}
+
+
+export function Input() {
+    return (
+        <div></div>
+    )
+}
