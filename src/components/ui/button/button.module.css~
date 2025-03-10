@@ -34,6 +34,9 @@
 .default {
     background-color: #ccc;
     transition-duration: 0.2s;
+    height: 30px !important;
+    width: 105px !important;
+
 }
 .default:hover {
     background-color: #999;

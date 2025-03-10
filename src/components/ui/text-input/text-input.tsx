@@ -1,5 +1,5 @@
 import React from 'react';
-import css from './inputText.module.css';
+import style from './input-text.module.css';
 
 type TextInputProps = {
     className?: string
@@ -14,7 +14,7 @@ export function TextInput({ value, onChange, placeholder, required, onKeyDown }:
     return (
         <input
             type="text"
-            className={css.inputText}
+            className={style.input}
             value={value}
             placeholder={placeholder}
             required={required}

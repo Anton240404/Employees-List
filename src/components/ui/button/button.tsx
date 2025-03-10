@@ -4,10 +4,11 @@ type Props = {
     color: 'success' | 'danger' | 'default',
     onClick: () => void,
     text: string,
+    disabled?: boolean;
 
 }
 
-export function Button({color, onClick, text}: Props) {
+export function Button({color, onClick, text, disabled}: Props) {
     const classnames = [css.button]
 
     if (color === 'success') {
@@ -18,9 +19,15 @@ export function Button({color, onClick, text}: Props) {
         classnames.push(css.default)
     }
 
+    if (disabled) {
+        classnames.push(css.disabled);
+    }
+
+
+
     return (
         <>
-            <button type="button" onClick={() => onClick()} className={classnames.join(' ')}>{text}</button>
+            <button type="button" disabled={disabled} onClick={() => onClick()} className={classnames.join(' ')}>{text}</button>
         </>
     )
 }

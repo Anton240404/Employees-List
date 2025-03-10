@@ -8,18 +8,14 @@ import {SaveEmployee} from "./save-employee.tsx";
 import {ModalPortal} from "./modal/castom-modal.tsx";
 import {Button} from "./ui/button/button.tsx";
 
-type SortBy = {
-    field: 'name' | 'company' | 'number' | null;
-    order: 'asc' | 'desc';
-}
+
 
 export function EmployeeList() {
     const [employees, setEmployees] = useState<Employee[]>(() => {
         const savedEmployees = localStorage.getItem("employees");
         return savedEmployees ? JSON.parse(savedEmployees) : initialEmployees;
     });
-    const [sortBy, setSortBy] = useState<SortBy>({ field: null, order: 'asc' })
-    const [filters, setFilters] = useState({name: ''})
+    const [searchQuery, setSearchQuery] = useState('');
     const [showPopup, setShowPopup] = useState(false);
     const [activeFilter, setActiveFilter] = useState<boolean | null>(null);
     const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null);
@@ -28,12 +24,18 @@ export function EmployeeList() {
         localStorage.setItem("employees", JSON.stringify(employees));
     }, [employees]);
 
+
     const filteredEmployees = employees.filter((emp) => {
-        return (
-            (emp.name.toLowerCase().includes(filters.name.toLowerCase())) &&
-            (activeFilter === null || emp.active === activeFilter)
-        );
+
+    const searchQueryLower = searchQuery.toLowerCase();
+
+    const matchesSearch =
+          emp.name.toLowerCase().includes(searchQueryLower) ||
+          emp.company.toLowerCase().includes(searchQueryLower) ||
+          emp.group.toLowerCase().includes(searchQueryLower)
+          return matchesSearch && (activeFilter === null || emp.active === activeFilter);
     });
+
 
     // Функция для открытия попапа добавления сотрудника
     const handleAddEmployee = () => {
@@ -69,7 +71,6 @@ export function EmployeeList() {
     )
     // Удаление сотрудника
     const handleDeleteEmployee = (id: string) => {
-        alert('Вы уверены что хотите удалить сотрудника?')
         setEmployees((emp) => emp.filter((emp) => emp.id !== id));
         setShowPopup(false);
     };
@@ -79,12 +80,14 @@ export function EmployeeList() {
             <div className={style.nameCompany}>
                 <img className={style.icon} src={logo} alt={'name company'}/>
                 <div className={style.add}>
-                    <Filter onFilterChange={(name) => setFilters({name})}/>
+                    <Filter onFilterChange={(query) => setSearchQuery(query)} />
                     <Button color={'success'} onClick={handleAddEmployee} text={'Добавить'}/>
                 </div>
                 <div className={style.guests}>
                     <h2>
-                        Посетители: {presentEmployees}/{employees.length}
+                        Посетители:
+                        <span className={style.greenSpan}>{presentEmployees}</span>/
+                        <span className={style.redSpan}>{employees.length}</span>
                     </h2>
                 </div>
             </div>

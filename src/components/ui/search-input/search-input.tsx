@@ -1,4 +1,5 @@
 import React from 'react';
+import style from "../search-input/input.module.css"
 
 
 type SearchInputProps = {
@@ -13,9 +14,9 @@ export function SearchInput({ value, onChange, onFilterChange, placeholder, onKe
     return (
         <input
             type="text"
-           /* className={`${css.textInput} ${css.searchInput}`}*/
+            className={style.input}
             value={value}
-            placeholder={placeholder || "Поиск по имени"}
+            placeholder={placeholder}
             onChange={(e) => {
                 const newValue = e.target.value;
                 onChange(newValue);

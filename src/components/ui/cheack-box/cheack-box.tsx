@@ -1,4 +1,4 @@
-import css from './cheackBox.module.css';
+import style from './check-box.module.css';
 
 type CheckboxProps = {
     checked: boolean;
@@ -11,7 +11,7 @@ export function Checkbox({ checked, onChange, label }: CheckboxProps) {
         <label >
             <input
                 type="checkbox"
-                className={css.text}
+                className={style.text}
                 checked={checked}
                 onChange={(e) => onChange(e.target.checked)}
             />

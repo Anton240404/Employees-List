@@ -9,4 +9,9 @@ export type SortBy = {
     field: 'name' | 'company' | 'number' | null;
     order: 'asc' | 'desc';
 }
-
+export type FilterValues = {
+    name: string;
+    company: string;
+    group: string;
+    number: string;
+}
