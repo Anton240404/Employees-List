@@ -9,6 +9,7 @@ body {
     padding: 0;
     width: 100%;
     height: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 
 .container {
@@ -32,11 +33,11 @@ body {
     margin-top: 5px;
 }
 .greenSpan{
-    color:green;
+    color:#80BB00;
     font-weight: bold;
 }
 .redSpan{
-    color:red;
+    color:#EC5937;
     font-weight: bold;
 }
 
@@ -62,6 +63,10 @@ body {
 
 .containerList {
     flex-grow: 1;
+}
+
+.noResults{
+    margin-left: 5px;
 }
 
 .item {

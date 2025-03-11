@@ -8,7 +8,7 @@ type CheckboxProps = {
 
 export function Checkbox({ checked, onChange, label }: CheckboxProps) {
     return (
-        <label className={style.label} >
+        <label >
             <input
                 type="checkbox"
                 className={style.text}

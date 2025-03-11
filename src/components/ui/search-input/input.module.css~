@@ -5,5 +5,5 @@
 }
 input:focus {
     outline: none;
-    border: 1px solid #ccc;
+    
 }

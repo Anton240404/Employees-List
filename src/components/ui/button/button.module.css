@@ -12,8 +12,9 @@
 }
 
 .danger {
-    background-color: red;
+    background-color: #D65A31;
     transition-duration: 0.2s;
+    color: white;
 }
 .danger:hover {
     background-color: darkred;
