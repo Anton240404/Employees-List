@@ -61,11 +61,11 @@ export function SaveEmployee({ employee, onSave, onClose, onDelete }: Props) {
                         <span className={style.spanSave}>ФИО</span>
                         <TextInput className={css.text} value={name} onChange={setName} required/>
                     </div>
-                    <div className={style.companyEditAndAdd}>
+                    <div className={style.EditAndAdd}>
                         <span className={style.spanSave}>Компания</span>
                         <TextInput className={css.text} value={company} onChange={setCompany} required/>
                     </div>
-                    <div className={style.groupEditAndAdd}>
+                    <div className={style.EditAndAdd}>
                         <span className={style.spanSave}>Группа</span>
                         <TextInput className={css.text} value={group} onChange={setGroup} required/>
                     </div>

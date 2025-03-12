@@ -103,7 +103,7 @@ export function EmployeeList() {
 
             <div className={style.containerList}>
                 {filteredEmployees.length === 0 ? (
-                    <h2 className={style.noResults}>Ничего не найдено</h2>
+                    <h2 className={style.noResults}>Совпадений не найдено</h2>
                 ) : (
                     <ul>
                         {filteredEmployees.map((emp, i) => (

@@ -12,7 +12,7 @@ import {Button} from "./ui/button/button.tsx";
 
 export function EmployeeList() {
     const [employees, setEmployees] = useState<Employee[]>(() => {
-        const savedEmployees = localStorage.getItem("employees");
+    const savedEmployees = localStorage.getItem("employees");
         return savedEmployees ? JSON.parse(savedEmployees) : initialEmployees;
     });
     const [searchQuery, setSearchQuery] = useState('');

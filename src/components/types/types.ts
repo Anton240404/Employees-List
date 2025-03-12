@@ -5,8 +5,4 @@ export type Employee = {
     group: string;
     active: boolean;
 }
-export type SortBy = {
-    field: 'name' | 'company' | 'number' | null;
-    order: 'asc' | 'desc';
-}
 

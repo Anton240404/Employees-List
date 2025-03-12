@@ -7,8 +7,8 @@
     width: 105px;
     text-align: center;
     cursor: pointer;
-    outline: none; /* Убирает контур */
-    border: none; /* Убирает границу */
+    outline: none;
+    border: none;
 }
 
 .danger {

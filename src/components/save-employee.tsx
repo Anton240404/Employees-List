@@ -18,8 +18,7 @@ export function SaveEmployee({ employee, onSave, onClose, onDelete }: Props) {
     const [company, setCompany] = useState(employee?.company || "");
     const [group, setGroup] = useState(employee?.group || "");
     const [active, setActive] = useState(employee?.active || false);
-
-    const [isConfirmingDelete, setIsConfirmingDelete] = useState(false); // Состояние подтверждения удаления
+    const [isConfirmingDelete, setIsConfirmingDelete] = useState(false);
 
     const isEditMode = Boolean(employee);
     const [isFormValid, setIsFormValid] = useState(isEditMode);
