@@ -163,11 +163,13 @@ body {
 .activeFilterRed {
     font-weight: bold;
     color: red;
+    transition-duration: 0.2s;
 }
 
 .activeFilterGreen {
     font-weight: bold;
     color: green;
+    transition-duration: 0.2s;
 }
 
 .activeFilterGrey {

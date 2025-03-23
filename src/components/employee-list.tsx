@@ -5,7 +5,7 @@ import style from "./styles/header.module.css"
 import logo from '../assets/logo.svg'
 import {initialEmployees} from "./employees/initial-employees.tsx";
 import {SaveEmployee} from "./save-employee.tsx";
-import {ModalPortal} from "./modal/castom-modal.tsx";
+import {ModalPortal} from "./ui/modal/castom-modal.tsx";
 import {Button} from "./ui/button/button.tsx";
 
 
@@ -69,6 +69,9 @@ export function EmployeeList() {
         () => employees.filter((employee) => employee.active).length,
         [employees]
     )
+    // Подсчет отсутствующих
+    const absentEmployees = employees.length - presentEmployees;
+
     // Удаление сотрудника
     const handleDeleteEmployee = (id: string) => {
         setEmployees((emp) => emp.filter((emp) => emp.id !== id));
@@ -87,7 +90,7 @@ export function EmployeeList() {
                     <h2>
                         Посетители:
                         <span className={style.greenSpan}>{presentEmployees}</span>/
-                        <span className={style.redSpan}>{employees.length}</span>
+                        <span className={style.redSpan}>{absentEmployees}</span>
                     </h2>
                 </div>
             </div>

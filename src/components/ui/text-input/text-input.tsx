@@ -8,6 +8,7 @@ type TextInputProps = {
     placeholder?: string;
     required?: boolean;
     onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+    onFilterChange?: (value: string) => void;
 };
 
 export function TextInput({ value, onChange, placeholder, required, onKeyDown }: TextInputProps) {
