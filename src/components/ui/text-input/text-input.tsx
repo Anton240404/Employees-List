@@ -2,7 +2,7 @@ import React from 'react';
 import style from './input-text.module.css';
 
 type TextInputProps = {
-    className?: string
+    className?: string;
     value: string;
     onChange: (value: string) => void;
     placeholder?: string;
@@ -11,7 +11,7 @@ type TextInputProps = {
     onFilterChange?: (value: string) => void;
 };
 
-export function TextInput({ value, onChange, placeholder, required, onKeyDown }: TextInputProps) {
+export function TextInput({ value, onChange, placeholder, required, onKeyDown, onFilterChange }: TextInputProps) {
     return (
         <input
             type="text"
@@ -19,7 +19,13 @@ export function TextInput({ value, onChange, placeholder, required, onKeyDown }:
             value={value}
             placeholder={placeholder}
             required={required}
-            onChange={(e) => onChange(e.target.value)}
+            onChange={(e) => {
+                const newValue = e.target.value;
+                onChange(newValue);
+                if (onFilterChange) {
+                    onFilterChange(newValue);
+                }
+            }}
             onKeyDown={onKeyDown}
         />
     );

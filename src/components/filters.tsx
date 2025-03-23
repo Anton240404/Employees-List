@@ -1,34 +1,19 @@
-import React, { useState } from "react";
-import { SearchInput } from "./ui/search-input/search-input.tsx";
-
+import { useState } from "react";
+import { TextInput } from "./ui/text-input/text-input.tsx";
 
 type Props = {
-    onFilterChange: (searchQuery: string) => void;
-}
+    onFilterChange: (value: string) => void;
+};
 
-export function Filter(props: Props) {
-    const [searchQuery, setSearchQuery] = useState('');
-
-    const handleKeyDown = (e: React.KeyboardEvent) => {
-        if (e.key === "Enter") {
-            props.onFilterChange(searchQuery);
-        }
-    };
-
-    const handleChange = (value: string) => {
-        setSearchQuery(value);
-        props.onFilterChange(value);
-    };
+export function Filter({ onFilterChange }: Props) {
+    const [filter, setFilter] = useState("");
 
     return (
-        <div>
-            <SearchInput
-                value={searchQuery}
-                onChange={handleChange}
-                onFilterChange={handleChange}
-                placeholder="Поиск..."
-                onKeyDown={handleKeyDown}
-            />
-        </div>
-    )
+        <TextInput
+            value={filter}
+            onChange={setFilter}
+            onFilterChange={onFilterChange}
+            placeholder="Поиск по имени"
+        />
+    );
 }
