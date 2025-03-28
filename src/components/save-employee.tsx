@@ -76,7 +76,7 @@ export function SaveEmployee({ employee, onSave, onClose, onDelete }: Props) {
                 {!isConfirmingDelete ? (
                     <>
                         <Button
-                            onClick={handleSubmit}
+                            type={'submit'}
                             color="success"
                             text={isEditMode ? "Сохранить" : "Добавить"}
                             disabled={!isEditMode && !isFormValid}

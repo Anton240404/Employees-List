@@ -2,32 +2,31 @@ import css from './button.module.css'
 
 type Props = {
     color: 'success' | 'danger' | 'default',
-    onClick: () => void,
+    onClick?: () => void,
     text: string,
     disabled?: boolean;
-
+    type?: 'submit' | 'button' | "reset"
 }
 
-export function Button({color, onClick, text, disabled}: Props) {
+export function Button(props: Props) {
     const classnames = [css.button]
 
-    if (color === 'success') {
+    if (props.color === 'success') {
         classnames.push(css.success)
-    } else if (color === 'danger') {
+    } else if (props.color === 'danger') {
         classnames.push(css.danger)
-    } else if (color === 'default') {
+    } else if (props.color === 'default') {
         classnames.push(css.default)
     }
 
-    if (disabled) {
+    if (props.disabled) {
         classnames.push(css.disabled);
     }
 
-
-
     return (
         <>
-            <button type="button" disabled={disabled} onClick={() => onClick()} className={classnames.join(' ')}>{text}</button>
+            <button type={props.type || 'button'} disabled={props.disabled} onClick={() => props.onClick?.()}
+                    className={classnames.join(' ')}>{props.text}</button>
         </>
     )
 }
